@@ -48,21 +48,35 @@ public class Pizza {
 
     public String getBill(){
         if(this.isVeg==true && vegpizza>0){
-            System.out.println("Veg pizza base price: "+(300*vegpizza));
-        }
+            this.bill+="Veg pizza base price: "+(300*vegpizza);
+            this.bill+="\n";
+
+             }
         else{
-            System.out.println("Non-veg pizza base price: "+(400 * nonpizza));
+            this.bill+="Non-veg pizza base price: "+(400 * nonpizza);
+            this.bill+="\n";
+//            System.out.println("Non-veg pizza base price: "+(400 * nonpizza));
         }
         if(extracheese>0) {
-            System.out.println("Extra Cheese Added: " + (80*extracheese));
+            this.bill+="Extra Cheese Added: " + (80*extracheese);
+            this.bill+="\n";
+//            System.out.println("Extra Cheese Added: " + (80*extracheese));
         }
         if(this.isVeg==true && extratopveg>0) {
-            System.out.println("Extra Toppings Added: " + (70*extratopveg));
+            this.bill+="Extra Toppings Added: " + (70*extratopveg);
+            this.bill+="\n";
+//            System.out.println("Extra Toppings Added: " + (70*extratopveg));
         }
         else if(this.isVeg==false && extratopnon>0){
-            System.out.println("Extra Toppings Added: " + (120*extratopnon));
+            this.bill+="Extra Toppings Added: " + (120*extratopnon);
+            this.bill+="\n";
+//            System.out.println("Extra Toppings Added: " + (120*extratopnon));
         }
-        if(paperbag>0) System.out.println("Paperbag Added: "+(20*paperbag));
+        if(paperbag>0) {
+            this.bill+="Paperbag Added: " + (20 * paperbag);
+            this.bill+="\n";
+//            System.out.println("Paperbag Added: " + (20 * paperbag));
+        }
         this.bill+="Total Price: "+this.price;
         return this.bill;
     }
