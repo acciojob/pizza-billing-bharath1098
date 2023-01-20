@@ -5,30 +5,65 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-
+   private int vegpizza=0;
+   private int nonpizza=0;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        // your code goes here
+        this.price=0;
+        this.bill="";
+        if(this.isVeg==true){
+            vegpizza++;
+            this.price+=300;
+        }
+        else{
+            nonpizza++;
+            this.price+=400;
+        }
     }
-
     public int getPrice(){
         return this.price;
     }
-
+    private int extracheese=0;
     public void addExtraCheese(){
-        // your code goes here
+        extracheese++;
+        this.price+=80;
     }
-
+        private int extratopveg=0;
+        private int extratopnon=0;
     public void addExtraToppings(){
-        // your code goes here
+        if(this.isVeg==true) {
+            extratopveg++;
+            this.price += 70;
+        }
+        else{
+            extratopnon++;
+            this.price += 120;
+        }
     }
-
+    private int paperbag=0;
     public void addTakeaway(){
-        // your code goes here
+        paperbag++;
+        this.price+=20;
     }
 
     public String getBill(){
-        // your code goes here
+        if(this.isVeg==true && vegpizza>0){
+            System.out.println("Veg pizza base price: "+(300*vegpizza));
+        }
+        else{
+            System.out.println("Non-veg pizza base price: "+(400 * nonpizza));
+        }
+        if(extracheese>0) {
+            System.out.println("Extra Cheese Added: " + (80*extracheese));
+        }
+        if(this.isVeg==true && extratopveg>0) {
+            System.out.println("Extra Toppings Added: " + (70*extratopveg));
+        }
+        else if(this.isVeg==false && extratopnon>0){
+            System.out.println("Extra Toppings Added: " + (120*extratopnon));
+        }
+        if(paperbag>0) System.out.println("Paperbag Added: "+(20*paperbag));
+        this.bill+="Total Price: "+this.price;
         return this.bill;
     }
 }
